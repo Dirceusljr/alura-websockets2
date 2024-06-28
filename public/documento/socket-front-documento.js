@@ -1,5 +1,5 @@
 import { obterCookie } from "../utils/cookie.js";
-import { alertarERedirecionar, atualizaTextoEditor, tratarAutorizacaoSucesso } from "./documento.js";
+import { alertarERedirecionar, atualizaTextoEditor, atualizarInterfaceDocumentos, tratarAutorizacaoSucesso } from "./documento.js";
 
 const socket = io("/usuarios",{
   auth: {
@@ -8,6 +8,8 @@ const socket = io("/usuarios",{
 });
 
 socket.on("autorizacao_sucesso", tratarAutorizacaoSucesso)
+
+socket.on("usuarios_no_documento", atualizarInterfaceDocumentos)
 
 socket.on("connect_error", (erro) => {
   alert(erro);
