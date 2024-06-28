@@ -22,6 +22,11 @@ function selecionarDocumento(dadosEntrada) {
   });
 }
 
+socket.on("usuario_ja_no_documento", () => {
+  alert("Documento já aberto em outra página.");
+  window.location.href = "/";
+})
+
 function emitirTextoEditor(dados) {
   socket.emit("texto_editor", dados);
 }
